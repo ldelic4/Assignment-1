@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the student developer behind the Bay & Bloom Boutique site.">
+  <title>About Us | Bay &amp; Bloom Boutique</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main menu">
+      <a class="brand" href="index.html">Bay <span>&amp;</span> Bloom</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="inventory.html">Manage Inventory</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="page-title">
+      <h1>About Us</h1>
+      <p>The person behind this site, and how it was built.</p>
+    </div>
+
+    <section class="card" style="margin-top:24px">
+  <div class="profile">
+    <div class="avatar">
+      <img src="baybloom.png">
+    </div>
+          <h3>Lea &mdash; Student Developer</h3>
+          <p>Graduate student, Muma College of Business, University of South Florida (AI &amp; Business Analytics focus)</p>
+          <p style="margin-top:6px">Information Security, Raymond James Financial &middot; Tampa Bay, FL</p>
+          <p style="margin-top:14px">
+            <!-- TODO: replace YOUR-GITHUB-USERNAME with your GitHub username -->
+            <a class="btn btn-primary btn-sm" href="https://github.com/ldelic4/Assignment-1" target="_blank" rel="noopener">View the source code on GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-2" style="margin-top:20px">
+      <section class="card">
+        <h3>Professional profile</h3>
+        <p>I work in information security on the messaging security team at Raymond James, where I focus on email threat detection and response. My day-to-day work involves analyzing large volumes of security data to find what matters, which is what drew me to graduate study in AI and business analytics.</p>
+        <p style="margin-top:12px">I enjoy building tools that turn raw data into something people can act on quickly, whether that is a security alert queue or a boutique owner's inventory list.</p>
+      </section>
+
+      <section class="card">
+        <h3>About this project</h3>
+        <p>Bay &amp; Bloom is a fictional Tampa Bay fashion boutique. The site is a static prototype of a back-office tool that would later be connected to a real database: an owner can manage inventory and review sales trends from one place.</p>
+        <p style="margin-top:12px">All product and sales figures are sample data created for this assignment.</p>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:20px">
+      <h3>How I built it</h3>
+      <p>I started by sketching the four pages and a single navigation menu so every page feels like part of the same site. I then built one shared stylesheet with a small color palette (dusty rose, sage and warm neutrals) to give the boutique a consistent, professional look.</p>
+      <p style="margin-top:12px">The product and sales data live in one JavaScript file (<code>js/data.js</code>), so the home page, inventory page and analytics page all read from the same source, the way a real data-driven site would read from a database. The Manage Inventory page mocks the four CRUD operations with a form and table, and saves changes in the browser so they carry over to the analytics charts.</p>
+      <p style="margin-top:12px">To keep the site fast, I avoided large images and heavy frameworks: the visuals are CSS gradients and emoji icons, and the only external library is Chart.js, which loads on the analytics page alone. The layout uses CSS Grid and Flexbox so it adapts from phone to desktop, and the menu collapses into a toggle button on small screens.</p>
+      <p style="margin-top:12px">The biggest lesson for me was how much small details, like highlighting the current page in the menu, flagging low stock in red, and confirming before a delete, affect how easy a site is to use.</p>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h3>Technologies used</h3>
+      <ul class="tech-list" style="margin-top:12px">
+        <li>HTML5</li>
+        <li>CSS3 (Grid, Flexbox, custom properties)</li>
+        <li>JavaScript (ES5/ES6)</li>
+        <li>Chart.js 4</li>
+        <li>localStorage</li>
+        <li>Git &amp; GitHub</li>
+        <li>GitHub Pages</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year">2026</span> Bay &amp; Bloom Boutique &middot; Tampa Bay, FL</span>
+      <span>ISM 6225 &middot; Assignment 1 &middot; Sample data for demonstration only</span>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
