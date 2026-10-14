@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bay & Bloom is a Tampa Bay fashion boutique offering curated dresses, tops, denim and accessories.">
+  <title>Home | Bay &amp; Bloom Boutique</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main menu">
+      <a class="brand" href="index.html">Bay <span>&amp;</span> Bloom</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="inventory.html">Manage Inventory</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Effortless style,<br>curated in Tampa Bay.</h1>
+        <p>Bay &amp; Bloom is a small fashion boutique carrying breathable dresses, everyday basics and statement accessories made for Florida living.</p>
+        <a class="btn btn-light" href="#new-arrivals">Shop new arrivals</a>
+        <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.6)" href="analytics.html">See store insights</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Shop by category</h2>
+        <p class="lead">Six collections, refreshed every season.</p>
+        <div class="grid grid-4">
+          <a class="tile tile-dresses" href="inventory.html?category=Dresses"><h3>Dresses</h3><p>Midi, maxi &amp; slip styles</p></a>
+          <a class="tile tile-tops" href="inventory.html?category=Tops"><h3>Tops</h3><p>Blouses, knits &amp; tanks</p></a>
+          <a class="tile tile-denim" href="inventory.html?category=Denim"><h3>Denim</h3><p>Wide leg, shorts &amp; jackets</p></a>
+          <a class="tile tile-access" href="inventory.html?category=Accessories"><h3>Accessories</h3><p>Totes, jewelry &amp; scarves</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="new-arrivals" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="container">
+        <h2>New arrivals</h2>
+        <p class="lead">Pulled live from the current inventory list.</p>
+        <div class="grid grid-4" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>What this site does</h2>
+        <p class="lead">A simple back-office tool for running the boutique day to day.</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Manage inventory</h3>
+            <p>Add new styles, look up a SKU, update prices and stock counts, and remove discontinued items.</p>
+            <p style="margin-top:14px"><a href="inventory.html">Open inventory &rarr;</a></p>
+          </div>
+          <div class="card">
+            <h3>Track performance</h3>
+            <p>See monthly revenue by channel, which categories earn the most, and the best-selling pieces.</p>
+            <p style="margin-top:14px"><a href="analytics.html">View analytics &rarr;</a></p>
+          </div>
+          <div class="card">
+            <h3>Catch low stock early</h3>
+            <p>Items with five or fewer units are flagged so popular pieces can be reordered before they sell out.</p>
+            <p style="margin-top:14px"><a href="inventory.html">Check stock levels &rarr;</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year">2026</span> Bay &amp; Bloom Boutique &middot; Tampa Bay, FL</span>
+      <span>ISM 6225 &middot; Assignment 1 &middot; Sample data for demonstration only</span>
+    </div>
+  </footer>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    // Render four featured products from the shared data file
+    (function () {
+      var icons = { Dresses: '&#128087;', Tops: '&#128090;', Denim: '&#128086;', Outerwear: '&#129509;', Accessories: '&#128092;', Shoes: '&#128097;' };
+      var tints = { Dresses: '#f6e3df', Tops: '#e5eee7', Denim: '#e2e8f2', Outerwear: '#efe8dc', Accessories: '#f5ecd9', Shoes: '#eee6e2' };
+      var picks = ['DR-1002', 'TP-2003', 'OW-4001', 'AC-5001'];
+      var html = PRODUCTS.filter(function (p) { return picks.indexOf(p.sku) > -1; }).map(function (p) {
+        return '<div class="card product">' +
+          '<div class="swatch" style="background:' + tints[p.category] + '">' + icons[p.category] + '</div>' +
+          '<span class="tag">' + p.category + '</span>' +
+          '<h3>' + p.name + '</h3>' +
+          '<p>' + p.color + ' &middot; ' + p.size + '</p>' +
+          '<p class="price">' + formatMoney(p.price) + '</p></div>';
+      }).join('');
+      document.getElementById('featured').innerHTML = html;
+    })();
+  </script>
+</body>
+
+</html>
